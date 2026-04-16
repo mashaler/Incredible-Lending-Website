@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incredible Lending — Built on Trust. Driven by Community.</title>
+<meta name="description" content="Incredible Lending offers personal loans built on trust, transparency, and community. Fast approvals, fair rates, real people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ─────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1C4A2E;
+  --green-mid:#2A6B42;
+  --green-light:#EAF3EB;
+  --gold:#C8922A;
+  --gold-light:#F5E9D5;
+  --cream:#FAF7F2;
+  --cream-dark:#F0EBE1;
+  --ink:#1A1A18;
+  --ink-mid:#444440;
+  --ink-soft:#7A7A74;
+  --white:#FFFFFF;
+  --shadow:0 4px 32px rgba(28,74,46,0.10);
+  --shadow-lg:0 12px 64px rgba(28,74,46,0.15);
+  --radius:14px;
+  --transition:0.28s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.2}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* ── PAGES ─────────────────────────────────── */
+.page{display:none;animation:fadeIn 0.4s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ── NAV ─────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,247,242,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(28,74,46,0.10);
+  padding:0 max(24px,calc(50% - 620px));
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+  color:var(--green);letter-spacing:-0.3px;
+}
+.nav-logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--green);display:flex;align-items:center;justify-content:center;
+  color:var(--white);font-size:14px;font-weight:700;letter-spacing:-0.5px;
+  flex-shrink:0;
+}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{
+  padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--ink-mid);
+  border:none;background:none;transition:background var(--transition),color var(--transition);
+}
+.nav-link:hover,.nav-link.active{background:var(--green-light);color:var(--green)}
+.nav-cta{
+  padding:9px 20px;background:var(--green);color:var(--white);
+  border:none;border-radius:10px;font-size:14px;font-weight:600;
+  transition:background var(--transition),transform var(--transition);
+  margin-left:8px;
+}
+.nav-cta:hover{background:var(--green-mid);transform:translateY(-1px)}
+.nav-mobile-btn{display:none;background:none;border:none;font-size:24px;color:var(--green);}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 0 16px;border-top:1px solid rgba(28,74,46,0.10);}
+.mobile-menu.open{display:flex}
+.mobile-link{padding:10px 14px;border-radius:8px;font-size:15px;color:var(--ink-mid);background:none;border:none;text-align:left;}
+.mobile-link:hover{background:var(--green-light);color:var(--green)}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{
+  padding:80px max(24px,calc(50% - 620px)) 60px;
+  background:
+    radial-gradient(ellipse 60% 80% at 110% 50%, rgba(200,146,42,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at -10% 60%, rgba(28,74,46,0.06) 0%, transparent 60%),
+    var(--cream);
+  overflow:hidden;
+  position:relative;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle, rgba(28,74,46,0.04) 1px, transparent 1px);
+  background-size:36px 36px;pointer-events:none;
+}
+.hero-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-light);border:1px solid rgba(200,146,42,0.25);
+  color:var(--gold);border-radius:40px;padding:5px 14px;
+  font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(38px,5vw,60px);color:var(--green);
+  margin-bottom:22px;letter-spacing:-1px;
+}
+.hero h1 em{
+  font-style:italic;color:var(--gold);
+  display:block;
+}
+.hero-sub{
+  font-size:17px;color:var(--ink-mid);margin-bottom:36px;
+  line-height:1.7;max-width:480px;font-weight:300;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px;}
+.btn-primary{
+  padding:14px 28px;background:var(--green);color:var(--white);
+  border:none;border-radius:12px;font-size:15px;font-weight:600;
+  transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-secondary{
+  padding:14px 28px;background:transparent;color:var(--green);
+  border:2px solid var(--green);border-radius:12px;font-size:15px;font-weight:600;
+  transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{background:var(--green-light)}
+.hero-trust{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-soft);}
+.trust-icon{width:20px;height:20px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--green);}
+.hero-card-wrap{position:relative}
+.hero-card{
+  background:var(--white);border-radius:24px;padding:32px;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(28,74,46,0.08);
+  position:relative;z-index:1;
+}
+.hero-card-badge{
+  position:absolute;top:-14px;right:24px;
+  background:var(--green);color:var(--white);
+  padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;
+  white-space:nowrap;
+}
+.loan-calc-label{font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.loan-slider{width:100%;accent-color:var(--green);height:4px;margin-bottom:4px;}
+.loan-amount-display{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--green);margin-bottom:4px;}
+.loan-range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);margin-bottom:20px;}
+.loan-breakdown{background:var(--cream);border-radius:12px;padding:16px;margin-bottom:20px;}
+.lbd-row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid rgba(28,74,46,0.08);}
+.lbd-row:last-child{border-bottom:none;font-weight:600;color:var(--green);padding-top:10px}
+.lbd-label{color:var(--ink-soft)}
+.apply-mini-btn{
+  width:100%;padding:14px;background:var(--green);color:var(--white);
+  border:none;border-radius:10px;font-size:15px;font-weight:600;
+  transition:all var(--transition);
+}
+.apply-mini-btn:hover{background:var(--green-mid)}
+.hero-floating{
+  position:absolute;background:var(--white);border-radius:14px;
+  padding:12px 16px;box-shadow:var(--shadow);border:1px solid rgba(28,74,46,0.08);
+  font-size:12px;font-weight:500;display:flex;align-items:center;gap:10px;
+}
+.hero-float-1{bottom:-20px;left:-20px;animation:float 3s ease-in-out infinite}
+.hero-float-2{top:-16px;left:50%;transform:translateX(-50%);animation:float 3.5s ease-in-out infinite 0.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+
+/* ── STATS STRIP ─────────────────────────────── */
+.stats-strip{
+  background:var(--green);padding:40px max(24px,calc(50% - 620px));
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.stat-item{text-align:center;padding:20px}
+.stat-num{
+  font-family:'Playfair Display',serif;font-size:40px;font-weight:700;
+  color:var(--white);line-height:1;margin-bottom:6px;
+}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.65);font-weight:400}
+
+/* ── SECTION SHARED ─────────────────────────────── */
+.section{padding:80px max(24px,calc(50% - 620px));}
+.section-alt{background:var(--cream-dark)}
+.section-white{background:var(--white)}
+.eyebrow{
+  display:inline-block;font-size:11px;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+}
+.section-title{font-size:clamp(28px,4vw,42px);color:var(--green);margin-bottom:16px;letter-spacing:-0.5px;}
+.section-sub{font-size:16px;color:var(--ink-mid);max-width:560px;line-height:1.7;font-weight:300;}
+.section-header{margin-bottom:52px;}
+.section-header-centered{text-align:center;margin-bottom:52px;}
+.section-header-centered .section-sub{margin:0 auto}
+
+/* ── ABOUT ─────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;
+  background:linear-gradient(145deg, var(--green-light) 0%, var(--gold-light) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;
+}
+.about-badge{
+  position:absolute;bottom:24px;right:-20px;
+  background:var(--white);border-radius:16px;padding:16px 20px;
+  box-shadow:var(--shadow);border:1px solid rgba(28,74,46,0.08);
+  text-align:center;min-width:140px;
+}
+.about-badge-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--green);}
+.about-badge-label{font-size:12px;color:var(--ink-soft);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.value-card{
+  background:var(--cream);border-radius:14px;padding:20px;
+  border:1px solid rgba(28,74,46,0.08);
+}
+.value-icon{font-size:24px;margin-bottom:10px;}
+.value-title{font-size:14px;font-weight:600;color:var(--green);margin-bottom:4px;}
+.value-text{font-size:13px;color:var(--ink-soft);line-height:1.5;}
+
+/* ── SERVICES ─────────────────────────────── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.service-card{
+  background:var(--white);border-radius:var(--radius);padding:28px;
+  border:1px solid rgba(28,74,46,0.08);
+  transition:all var(--transition);
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform var(--transition);
+}
+.service-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--green-light);display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:18px;
+}
+.service-name{font-size:17px;font-weight:600;color:var(--green);margin-bottom:8px;}
+.service-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:16px;}
+.service-range{
+  display:flex;align-items:center;gap:8px;
+  background:var(--cream);border-radius:8px;padding:10px 14px;
+  font-size:12px;font-weight:600;color:var(--green);
+}
+.service-range-label{color:var(--ink-soft);font-weight:400}
+
+/* ── HOW IT WORKS ─────────────────────────── */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.steps-grid::before{
+  content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;
+  background:linear-gradient(90deg,var(--green-light),var(--gold-light),var(--green-light));
+  z-index:0;
+}
+.step-card{text-align:center;position:relative;z-index:1}
+.step-num{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--green);color:var(--white);
+  font-family:'Playfair Display',serif;font-size:24px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;box-shadow:0 4px 16px rgba(28,74,46,0.25);
+}
+.step-title{font-size:15px;font-weight:600;color:var(--green);margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+/* ── REQUIREMENTS ─────────────────────────── */
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.req-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.req-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;background:var(--white);border-radius:10px;
+  border:1px solid rgba(28,74,46,0.08);
+}
+.req-check{
+  width:24px;height:24px;border-radius:50%;background:var(--green-light);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--green);margin-top:1px;
+}
+.req-text{font-size:14px;color:var(--ink-mid)}
+.req-panel{
+  background:var(--green);border-radius:20px;padding:36px;color:var(--white);
+  position:sticky;top:90px;
+}
+.req-panel h3{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:12px;color:var(--white);}
+.req-panel p{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:24px;line-height:1.7;}
+.req-rates{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.rate-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.12);font-size:13px;}
+.rate-row:last-child{border:none}
+.rate-label{color:rgba(255,255,255,0.65)}
+.rate-val{font-weight:600;color:var(--white)}
+.panel-cta{
+  width:100%;padding:14px;background:var(--gold);color:var(--white);
+  border:none;border-radius:10px;font-size:15px;font-weight:600;
+  transition:all var(--transition);
+}
+.panel-cta:hover{background:#b8821e;transform:translateY(-1px)}
+
+/* ── TESTIMONIALS ─────────────────────────── */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.testi-card{
+  background:var(--white);border-radius:var(--radius);padding:28px;
+  border:1px solid rgba(28,74,46,0.08);
+  position:relative;
+}
+.testi-quote{
+  font-size:48px;line-height:0.8;color:var(--green-light);
+  font-family:'Playfair Display',serif;margin-bottom:16px;
+  display:block;
+}
+.testi-text{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-light),var(--gold-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.testi-name{font-size:14px;font-weight:600;color:var(--green);}
+.testi-role{font-size:12px;color:var(--ink-soft);}
+.testi-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:14px;}
+
+/* ── FAQ ─────────────────────────────────── */
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto;}
+.faq-item{
+  background:var(--white);border-radius:var(--radius);
+  border:1px solid rgba(28,74,46,0.08);overflow:hidden;
+}
+.faq-q{
+  width:100%;padding:20px 24px;background:none;border:none;
+  text-align:left;font-size:15px;font-weight:600;color:var(--green);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  cursor:pointer;transition:background var(--transition);
+}
+.faq-q:hover{background:var(--green-light)}
+.faq-icon{font-size:20px;color:var(--gold);flex-shrink:0;transition:transform var(--transition);}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  display:none;padding:0 24px 20px;
+  font-size:14px;color:var(--ink-mid);line-height:1.7;font-weight:300;
+}
+.faq-item.open .faq-a{display:block}
+
+/* ── CONTACT ─────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:20px;}
+.contact-item{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px;background:var(--white);border-radius:12px;
+  border:1px solid rgba(28,74,46,0.08);
+}
+.contact-icon{
+  width:44px;height:44px;border-radius:12px;background:var(--green-light);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.contact-label{font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.contact-val{font-size:15px;font-weight:500;color:var(--green);}
+.contact-form-wrap{
+  background:var(--white);border-radius:20px;padding:36px;
+  box-shadow:var(--shadow);border:1px solid rgba(28,74,46,0.08);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.form-field label{font-size:12px;font-weight:600;color:var(--ink-mid);letter-spacing:0.3px}
+.form-field input,.form-field select,.form-field textarea{
+  padding:12px 14px;border:1.5px solid rgba(28,74,46,0.15);border-radius:10px;
+  font-size:14px;font-family:'DM Sans',sans-serif;background:var(--cream);
+  color:var(--ink);transition:border-color var(--transition);
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+  outline:none;border-color:var(--green);background:var(--white);
+}
+.form-field textarea{resize:vertical;min-height:100px}
+.form-submit{
+  width:100%;padding:14px;background:var(--green);color:var(--white);
+  border:none;border-radius:10px;font-size:15px;font-weight:600;
+  transition:all var(--transition);
+}
+.form-submit:hover{background:var(--green-mid);transform:translateY(-1px)}
+.form-success{
+  display:none;background:var(--green-light);border:1px solid rgba(28,74,46,0.2);
+  border-radius:10px;padding:16px;font-size:14px;color:var(--green);text-align:center;
+  margin-top:14px;
+}
+
+/* ── APPLY PAGE ─────────────────────────── */
+.apply-hero{
+  background:var(--green);padding:60px max(24px,calc(50% - 620px)) 0;
+  text-align:center;
+}
+.apply-hero h1{color:var(--white);margin-bottom:14px;}
+.apply-hero p{color:rgba(255,255,255,0.75);font-size:16px;max-width:540px;margin:0 auto 40px;font-weight:300}
+.apply-steps-strip{
+  display:flex;gap:0;margin-top:40px;
+  border-radius:14px 14px 0 0;overflow:hidden;
+}
+.apply-step-pill{
+  flex:1;text-align:center;padding:14px 10px;
+  background:rgba(255,255,255,0.12);
+  border-right:1px solid rgba(255,255,255,0.08);
+  font-size:12px;color:rgba(255,255,255,0.7);
+}
+.apply-step-pill:last-child{border:none}
+.apply-step-pill .num{font-size:18px;font-weight:700;color:var(--white);display:block;margin-bottom:2px;font-family:'Playfair Display',serif}
+.apply-frame{
+  background:var(--cream-dark);padding:40px max(24px,calc(50% - 620px)) 80px;
+}
+.apply-card{
+  max-width:640px;margin:0 auto;background:var(--white);
+  border-radius:0 0 20px 20px;box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+.apply-section-title{
+  font-family:'Playfair Display',serif;font-size:16px;font-weight:600;
+  color:var(--green);background:var(--cream);padding:16px 28px;
+  border-bottom:1px solid rgba(28,74,46,0.08);letter-spacing:0.2px;
+  display:flex;align-items:center;gap:10px;
+}
+.apply-section-title::before{
+  content:attr(data-step);width:24px;height:24px;border-radius:50%;
+  background:var(--green);color:var(--white);font-size:11px;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;flex-shrink:0;
+}
+.apply-section-body{padding:24px 28px;}
+.apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.apply-field{display:flex;flex-direction:column;gap:5px}
+.apply-field.full{grid-column:1/-1}
+.apply-field label{font-size:12px;font-weight:600;color:var(--ink-mid)}
+.apply-field span{color:#E24B4A}
+.apply-field input,.apply-field select,.apply-field textarea{
+  padding:11px 13px;border:1.5px solid rgba(28,74,46,0.15);border-radius:9px;
+  font-size:14px;font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);
+  transition:border-color var(--transition);
+}
+.apply-field input:focus,.apply-field select:focus,.apply-field textarea:focus{
+  outline:none;border-color:var(--green);background:var(--white);
+}
+.apply-field textarea{resize:vertical;min-height:80px}
+.apply-footer{padding:20px 28px;border-top:1px solid rgba(28,74,46,0.08);background:var(--cream);}
+.apply-submit{
+  width:100%;padding:15px;background:var(--green);color:var(--white);
+  border:none;border-radius:10px;font-size:16px;font-weight:600;
+  transition:all var(--transition);
+}
+.apply-submit:hover{background:var(--green-mid)}
+.apply-submit:disabled{background:#9db5a4;cursor:not-allowed}
+.apply-err{background:#fcebeb;border:1px solid #F09595;color:#791F1F;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
+.apply-success{
+  text-align:center;padding:60px 40px;
+  animation:fadeIn 0.5s ease;
+}
+.apply-success-icon{
+  width:80px;height:80px;background:var(--green-light);border:2px solid var(--green);
+  border-radius:50%;font-size:36px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+}
+.apply-success h2{font-size:28px;color:var(--green);margin-bottom:10px;}
+.apply-success p{font-size:15px;color:var(--ink-mid);max-width:360px;margin:0 auto;line-height:1.7}
+
+/* ── CTA BAND ─────────────────────────────── */
+.cta-band{
+  background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);
+  padding:80px max(24px,calc(50% - 620px));text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.cta-band h2{
+  font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,48px);
+  color:var(--white);margin-bottom:14px;position:relative;
+}
+.cta-band p{font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:32px;position:relative;font-weight:300;}
+.cta-band-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;}
+.cta-btn-white{
+  padding:14px 32px;background:var(--white);color:var(--green);
+  border:none;border-radius:12px;font-size:15px;font-weight:700;
+  transition:all var(--transition);
+}
+.cta-btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.cta-btn-outline{
+  padding:14px 32px;background:transparent;color:var(--white);
+  border:2px solid rgba(255,255,255,0.4);border-radius:12px;
+  font-size:15px;font-weight:600;transition:all var(--transition);
+}
+.cta-btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.1)}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{
+  background:var(--ink);padding:60px max(24px,calc(50% - 620px)) 32px;
+  color:rgba(255,255,255,0.65);
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.footer-tagline{font-size:13px;line-height:1.6;margin-bottom:16px;}
+.footer-col-title{font-size:12px;font-weight:600;color:var(--white);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;}
+.footer-links{display:flex;flex-direction:column;gap:8px;}
+.footer-link{font-size:13px;color:rgba(255,255,255,0.55);background:none;border:none;text-align:left;cursor:pointer;transition:color var(--transition);}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;}
+.footer-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.08);border-radius:6px;padding:4px 10px;font-size:11px;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card-wrap{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .steps-grid::before{display:none}
+  .testimonials-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .req-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .apply-grid{grid-template-columns:1fr}
+  .apply-field.full{grid-column:1}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:block}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+  .apply-steps-strip{flex-wrap:wrap}
+  .apply-steps-strip .apply-step-pill{flex:0 0 50%}
+}
+
+/* ── ANIMATIONS ─────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── WHATSAPP FLOAT ─────────────────────── */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  width:56px;height:56px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  font-size:26px;border:none;
+  transition:transform var(--transition),box-shadow var(--transition);
+  animation:pulse 2s ease-in-out infinite 2s;
+}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(37,211,102,0.5)}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,0.7),0 0 0 8px rgba(37,211,102,0.1)}}
+
+/* ── LOAN CALCULATOR PAGE ─────────────── */
+.calc-page-wrap{padding:60px max(24px,calc(50% - 620px));}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.calc-card{
+  background:var(--white);border-radius:20px;padding:36px;
+  box-shadow:var(--shadow);border:1px solid rgba(28,74,46,0.08);
+}
+.calc-result-card{
+  background:var(--green);border-radius:20px;padding:36px;
+  position:sticky;top:90px;
+}
+.calc-result-card h3{color:var(--white);font-family:'Playfair Display',serif;font-size:22px;margin-bottom:24px;}
+.calc-result-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:14px;}
+.calc-result-row:last-of-type{border:none}
+.calc-result-label{color:rgba(255,255,255,0.65)}
+.calc-result-val{color:var(--white);font-weight:600}
+.calc-highlight{
+  background:rgba(255,255,255,0.12);border-radius:12px;padding:16px;
+  margin-top:16px;text-align:center;
+}
+.calc-highlight-label{font-size:12px;color:rgba(255,255,255,0.65);margin-bottom:4px}
+.calc-highlight-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);line-height:1}
+
+.range-input{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--green-light);outline:none;margin:8px 0 4px;}
+.range-input::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--green);cursor:pointer;box-shadow:0 2px 6px rgba(28,74,46,0.3);}
+.range-input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--green);cursor:pointer;border:none}
+
+/* Rate type toggle */
+.rate-toggle{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.rate-btn{padding:8px 16px;border-radius:8px;border:1.5px solid rgba(28,74,46,0.2);background:var(--white);color:var(--ink-mid);font-size:13px;font-weight:500;cursor:pointer;transition:all var(--transition);}
+.rate-btn.active{background:var(--green);color:var(--white);border-color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a href="https://wa.me/27000000000?text=Hi!%20I'd%20like%20to%20know%20more%20about%20a%20loan." class="wa-float" target="_blank" title="Chat with us on WhatsApp">💬</a>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <button onclick="showPage('home')" class="nav-logo" style="background:none;border:none;">
+      <div class="nav-logo-mark">IL</div>
+      Incredible Lending
+    </button>
+    <div class="nav-links">
+      <button class="nav-link active" id="nl-home" onclick="showPage('home')">Home</button>
+      <button class="nav-link" id="nl-about" onclick="showPage('about')">About</button>
+      <button class="nav-link" id="nl-services" onclick="showPage('services')">Loans</button>
+      <button class="nav-link" id="nl-calculator" onclick="showPage('calculator')">Calculator</button>
+      <button class="nav-link" id="nl-contact" onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('apply')">Apply Now →</button>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleMobileMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-link" onclick="showPage('home');toggleMobileMenu()">Home</button>
+    <button class="mobile-link" onclick="showPage('about');toggleMobileMenu()">About us</button>
+    <button class="mobile-link" onclick="showPage('services');toggleMobileMenu()">Loans</button>
+    <button class="mobile-link" onclick="showPage('calculator');toggleMobileMenu()">Calculator</button>
+    <button class="mobile-link" onclick="showPage('contact');toggleMobileMenu()">Contact</button>
+    <button class="mobile-link" style="color:var(--green);font-weight:600;" onclick="showPage('apply');toggleMobileMenu()">Apply Now →</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">✦ Built on Trust. Driven by Community.</div>
+        <h1>
+          Real money for <em>real people,</em> right here at home.
+        </h1>
+        <p class="hero-sub">At Incredible Lending, we believe everyone deserves a fair chance. We offer transparent, affordable loans with no hidden surprises — just honest lending from people who care.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('apply')">Apply in minutes →</button>
+          <button class="btn-secondary" onclick="showPage('calculator')">📊 Loan calculator</button>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><div class="trust-icon">✓</div> No hidden fees</div>
+          <div class="trust-item"><div class="trust-icon">✓</div> Fast approval</div>
+          <div class="trust-item"><div class="trust-icon">✓</div> Fair rates</div>
+          <div class="trust-item"><div class="trust-icon">✓</div> Flexible terms</div>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card">
+          <div class="hero-card-badge">Instant estimate</div>
+          <div class="loan-calc-label">How much do you need?</div>
+          <div class="loan-amount-display" id="hero-amount-display">R5,000</div>
+          <input type="range" class="loan-slider" id="hero-slider" min="1000" max="50000" step="500" value="5000" oninput="updateHeroCalc()">
+          <div class="loan-range-labels"><span>R1,000</span><span>R50,000</span></div>
+          <div class="loan-breakdown" id="hero-breakdown">
+            <div class="lbd-row"><span class="lbd-label">Monthly repayment</span><span id="h-monthly">R583</span></div>
+            <div class="lbd-row"><span class="lbd-label">Interest (3% p.m.)</span><span id="h-interest">R900</span></div>
+            <div class="lbd-row"><span class="lbd-label">Term</span><span>12 months</span></div>
+            <div class="lbd-row"><span class="lbd-label">Total repayable</span><span id="h-total">R5,900</span></div>
+          </div>
+          <button class="apply-mini-btn" onclick="showPage('apply')">Apply for this amount →</button>
+        </div>
+        <div class="hero-floating hero-float-1"><div class="float-dot"></div><div><div style="font-weight:600;font-size:13px;">⚡ Quick approval</div><div style="color:var(--ink-soft);font-size:11px;">Usually same day</div></div></div>
+        <div class="hero-floating hero-float-2"><div class="float-dot" style="background:var(--gold)"></div><div style="font-size:12px;font-weight:600">🔒 100% Secure</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-num">500+</div><div class="stat-label">Happy borrowers helped</div></div>
+      <div class="stat-item reveal"><div class="stat-num">98%</div><div class="stat-label">Customer satisfaction</div></div>
+      <div class="stat-item reveal"><div class="stat-num">24hr</div><div class="stat-label">Average approval time</div></div>
+      <div class="stat-item reveal"><div class="stat-num">5yrs</div><div class="stat-label">Serving our community</div></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section section-white">
+    <div class="section-header-centered reveal">
+      <div class="eyebrow">Why choose us</div>
+      <h2 class="section-title">Lending the way it <em style="font-style:italic;color:var(--gold);">should</em> be</h2>
+      <p class="section-sub">We're not a bank — we're your neighbours. Every application is reviewed by real people who want to see you succeed.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="transition-delay:0.0s">
+        <div class="service-icon">🤝</div>
+        <div class="service-name">Personal service</div>
+        <div class="service-desc">Every client speaks to a real person — no bots, no call centres. We take the time to understand your situation and find the right solution.</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-icon">📋</div>
+        <div class="service-name">Simple process</div>
+        <div class="service-desc">Apply online in minutes. We ask for the minimum documentation necessary and keep you informed every step of the way.</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-icon">💡</div>
+        <div class="service-name">Complete transparency</div>
+        <div class="service-desc">No surprises, no fine print, no hidden fees. Your repayment schedule is clear from day one — what you see is exactly what you pay.</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.3s">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Fast turnaround</div>
+        <div class="service-desc">Most applications are assessed within 24 hours. Approved? Your money is with you as fast as we can arrange it.</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.4s">
+        <div class="service-icon">🛡️</div>
+        <div class="service-name">Your privacy matters</div>
+        <div class="service-desc">Your personal and financial information stays with us — fully confidential, never shared with third parties.</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.5s">
+        <div class="service-icon">🌱</div>
+        <div class="service-name">Community investment</div>
+        <div class="service-desc">When you borrow from us, you invest in your community. We reinvest in local people, supporting growth from the ground up.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt">
+    <div class="section-header-centered reveal">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title">Four simple steps to your loan</h2>
+      <p class="section-sub">We've made the process as easy as possible. No queues. No mountains of paperwork.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="step-title">Apply online</div>
+        <div class="step-desc">Fill in our simple form — takes about 5 minutes. Tell us about yourself and what you need.</div>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.1s">
+        <div class="step-num">2</div>
+        <div class="step-title">Quick review</div>
+        <div class="step-desc">Our team reviews your application personally and may reach out with any questions.</div>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.2s">
+        <div class="step-num">3</div>
+        <div class="step-title">Get approved</div>
+        <div class="step-desc">We'll notify you of the decision, usually within 24 hours, along with your repayment schedule.</div>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.3s">
+        <div class="step-num">4</div>
+        <div class="step-title">Receive your money</div>
+        <div class="step-desc">Once you sign your agreement, we transfer the funds. Simple, straightforward, and done.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <button class="btn-primary" onclick="showPage('apply')">Start your application →</button>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-white">
+    <div class="section-header-centered reveal">
+      <div class="eyebrow">Testimonials</div>
+      <h2 class="section-title">Words from our community</h2>
+      <p class="section-sub">Our clients' success is our greatest achievement. Here's what some of them have to say.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote">"</span>
+        <p class="testi-text">Incredible Lending helped me when the banks said no. The process was fast, the rate was fair, and they treated me like a person — not just an application number.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩🏾</div>
+          <div><div class="testi-name">Thandi M.</div><div class="testi-role">Small business owner · Johannesburg</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:0.1s">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote">"</span>
+        <p class="testi-text">I needed money urgently for a family emergency. Within 24 hours it was sorted — no stress, no drama. These people genuinely care. I've recommended them to all my friends.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👨🏿</div>
+          <div><div class="testi-name">Sipho K.</div><div class="testi-role">Teacher · Soweto</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:0.2s">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote">"</span>
+        <p class="testi-text">Transparent, honest, fast. No hidden charges, no nasty surprises. I knew exactly what I was paying from day one. Will definitely use Incredible Lending again.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩🏽</div>
+          <div><div class="testi-name">Priya N.</div><div class="testi-role">Entrepreneur · Pretoria</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <h2>Ready to take the next step?</h2>
+    <p>Apply today — it's free, fast, and there's no obligation.</p>
+    <div class="cta-band-btns">
+      <button class="cta-btn-white" onclick="showPage('apply')">Apply now — takes 5 minutes</button>
+      <button class="cta-btn-outline" onclick="showPage('contact')">Talk to us first</button>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <section style="background:var(--green);padding:60px max(24px,calc(50% - 620px)) 70px;text-align:center;">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Our story</div>
+    <h1 style="color:var(--white);font-size:clamp(32px,5vw,54px);max-width:700px;margin:0 auto 16px;">More than money. We're part of your story.</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:16px;max-width:560px;margin:0 auto;font-weight:300;line-height:1.8;">Founded on the belief that financial access shouldn't be a privilege — it should be a right available to every person in our community.</p>
+  </section>
+
+  <section class="section">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">Who we are</div>
+        <h2 class="section-title">Built for our community, by our community</h2>
+        <p style="font-size:15px;color:var(--ink-mid);line-height:1.8;margin-bottom:20px;font-weight:300;">Incredible Lending was started five years ago with a simple mission: to give everyday people access to fair, transparent, and affordable credit — without the red tape, the cold attitudes, or the impossible requirements of traditional banks.</p>
+        <p style="font-size:15px;color:var(--ink-mid);line-height:1.8;margin-bottom:20px;font-weight:300;">We've helped hundreds of families, small business owners, students, and working people take control of their finances. Every client matters to us personally — because we live and work in the same communities you do.</p>
+        <p style="font-size:15px;color:var(--ink-mid);line-height:1.8;font-weight:300;">Our foundation is integrity. Every interaction is honest. Every fee is disclosed upfront. Every decision is made with your best interest in mind.</p>
+        <div class="values-grid" style="margin-top:28px">
+          <div class="value-card"><div class="value-icon">🌟</div><div class="value-title">Integrity</div><div class="value-text">We say what we mean and do what we say. Always.</div></div>
+          <div class="value-card"><div class="value-icon">🤲</div><div class="value-title">Empathy</div><div class="value-text">We see the person behind every application.</div></div>
+          <div class="value-card"><div class="value-icon">🔍</div><div class="value-title">Transparency</div><div class="value-text">No jargon, no hidden terms, no surprises.</div></div>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <div class="about-img">🤝</div>
+        <div class="about-badge">
+          <div class="about-badge-num">500+</div>
+          <div class="about-badge-label">Clients helped</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-header-centered">
+      <div class="eyebrow">Our promise to you</div>
+      <h2 class="section-title">The Incredible Lending commitment</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto">
+      <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid rgba(28,74,46,0.08);text-align:center">
+        <div style="font-size:36px;margin-bottom:14px">💬</div>
+        <h3 style="font-size:16px;color:var(--green);margin-bottom:8px">We listen first</h3>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.6">Before offering any product, we take the time to understand your unique situation and goals.</p>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid rgba(28,74,46,0.08);text-align:center">
+        <div style="font-size:36px;margin-bottom:14px">⚖️</div>
+        <h3 style="font-size:16px;color:var(--green);margin-bottom:8px">Fair for everyone</h3>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.6">Our rates are competitive and our terms are structured to make repayment manageable, not stressful.</p>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid rgba(28,74,46,0.08);text-align:center">
+        <div style="font-size:36px;margin-bottom:14px">🌱</div>
+        <h3 style="font-size:16px;color:var(--green);margin-bottom:8px">Long-term thinking</h3>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.6">We aim to build lasting relationships, not just complete transactions. Your financial wellbeing matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Join hundreds of satisfied clients</h2>
+    <p>Take the first step toward your financial goals today.</p>
+    <div class="cta-band-btns">
+      <button class="cta-btn-white" onclick="showPage('apply')">Apply now</button>
+      <button class="cta-btn-outline" onclick="showPage('contact')">Get in touch</button>
+    </div>
+  </section>
+
+</div><!-- /page-about -->
+
+
+<!-- ══════════════════════════════════
+     PAGE: SERVICES / LOANS
+══════════════════════════════════ -->
+<div class="page" id="page-services">
+
+  <section style="background:var(--green);padding:60px max(24px,calc(50% - 620px));text-align:center">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Our loan products</div>
+    <h1 style="color:var(--white);font-size:clamp(30px,4vw,50px);margin-bottom:14px">A loan for every need</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;max-width:520px;margin:0 auto;font-weight:300;line-height:1.8">Whether it's a personal emergency, a business opportunity, or a dream you're chasing — we have a loan that fits.</p>
+  </section>
+
+  <section class="section">
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">👤</div>
+        <div class="service-name">Personal loans</div>
+        <div class="service-desc">For life's unexpected moments — medical bills, home repairs, education, or anything you need. Fast, flexible, and fair.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R1,000 – R30,000</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-icon">💼</div>
+        <div class="service-name">Business loans</div>
+        <div class="service-desc">Capital to start, grow, or stabilise your business. We understand the hustle and we're here to back your vision.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R5,000 – R50,000</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-icon">🎓</div>
+        <div class="service-name">Education loans</div>
+        <div class="service-desc">Investing in knowledge is investing in your future. We offer study loans with terms that work around the academic calendar.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R2,000 – R25,000</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.3s">
+        <div class="service-icon">🏠</div>
+        <div class="service-name">Home improvement</div>
+        <div class="service-desc">Repairs, renovations, or upgrades — make your home everything you've dreamed of without waiting years to save up.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R3,000 – R40,000</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.4s">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Emergency loans</div>
+        <div class="service-desc">When you need money urgently, we move fast. Emergency applications are prioritised with same-day review.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R500 – R10,000</div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.5s">
+        <div class="service-icon">🔄</div>
+        <div class="service-name">Debt consolidation</div>
+        <div class="service-desc">Combine multiple payments into one manageable monthly repayment. Reduce stress and save on total interest.</div>
+        <div class="service-range"><span class="service-range-label">Amount range:</span> R5,000 – R50,000</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="req-grid">
+      <div>
+        <div class="eyebrow">Requirements</div>
+        <h2 class="section-title" style="margin-bottom:24px">What you'll need to apply</h2>
+        <ul class="req-list">
+          <li class="req-item"><div class="req-check">✓</div><div class="req-text"><strong>South African ID</strong> — valid national ID card or smart card</div></li>
+          <li class="req-item"><div class="req-check">✓</div><div class="req-text"><strong>Proof of income</strong> — recent payslip or bank statement (last 3 months)</div></li>
+          <li class="req-item"><div class="req-check">✓</div><div class="req-text"><strong>Active bank account</strong> — in your name, used for repayments and disbursement</div></li>
+          <li class="req-item"><div class="req-check">✓</div><div class="req-text"><strong>Valid contact details</strong> — phone number and email address we can reach you on</div></li>
+          <li class="req-item"><div class="req-check">✓</div><div class="req-text"><strong>Residential address</strong> — proof of address may be requested</div></li>
+          <li class="req-item" style="border-color:rgba(200,146,42,0.2);"><div class="req-check" style="background:var(--gold-light);color:var(--gold)">✦</div><div class="req-text"><strong>Good intentions</strong> — we work with all credit histories. Just be honest with us.</div></li>
+        </ul>
+      </div>
+      <div class="req-panel">
+        <h3>Our rates</h3>
+        <p>Clear, upfront, and with no nasty surprises. Rates are set per agreement based on loan size and term.</p>
+        <div class="req-rates">
+          <div class="rate-row"><span class="rate-label">Interest rate</span><span class="rate-val">From 3% p.m.</span></div>
+          <div class="rate-row"><span class="rate-label">Loan terms</span><span class="rate-val">1 – 24 months</span></div>
+          <div class="rate-row"><span class="rate-label">Initiation fee</span><span class="rate-val">Disclosed upfront</span></div>
+          <div class="rate-row"><span class="rate-label">Early settlement</span><span class="rate-val">No penalty</span></div>
+          <div class="rate-row"><span class="rate-label">Decision time</span><span class="rate-val">Within 24 hours</span></div>
+          <div class="rate-row"><span class="rate-label">Disbursement</span><span class="rate-val">Same / next day</span></div>
+        </div>
+        <button class="panel-cta" onclick="showPage('calculator')">📊 Use loan calculator</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Found the right loan?</h2>
+    <p>Apply now — fast, simple, no obligation to accept.</p>
+    <div class="cta-band-btns">
+      <button class="cta-btn-white" onclick="showPage('apply')">Apply today →</button>
+      <button class="cta-btn-outline" onclick="showPage('contact')">Ask a question</button>
+    </div>
+  </section>
+
+</div><!-- /page-services -->
+
+
+<!-- ══════════════════════════════════
+     PAGE: CALCULATOR
+══════════════════════════════════ -->
+<div class="page" id="page-calculator">
+
+  <section style="background:var(--green);padding:50px max(24px,calc(50% - 620px));text-align:center">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Free tool</div>
+    <h1 style="color:var(--white);font-size:clamp(28px,4vw,46px);margin-bottom:10px">Loan calculator</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;max-width:480px;margin:0 auto;font-weight:300">See exactly what your repayments would be before you commit to anything.</p>
+  </section>
+
+  <div class="calc-page-wrap">
+    <div class="calc-grid">
+      <div class="calc-card">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--green);margin-bottom:24px">Set your loan details</h3>
+
+        <div style="margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+            <label style="font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px">Loan amount</label>
+            <span style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--green)" id="calc-amount-lbl">R10,000</span>
+          </div>
+          <input type="range" class="range-input" id="calc-amount" min="1000" max="50000" step="500" value="10000" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft)"><span>R1,000</span><span>R50,000</span></div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+            <label style="font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px">Term</label>
+            <span style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--green)" id="calc-term-lbl">12 months</span>
+          </div>
+          <input type="range" class="range-input" id="calc-term" min="1" max="24" step="1" value="12" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft)"><span>1 month</span><span>24 months</span></div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+            <label style="font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px">Interest rate (p.m.)</label>
+            <span style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--green)" id="calc-rate-lbl">3%</span>
+          </div>
+          <input type="range" class="range-input" id="calc-rate" min="1" max="10" step="0.5" value="3" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft)"><span>1%</span><span>10%</span></div>
+        </div>
+
+        <div style="margin-bottom:20px">
+          <label style="font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:8px">Repayment type</label>
+          <div class="rate-toggle">
+            <button class="rate-btn active" id="rt-equal" onclick="setRateType('equal',this)">Equal installments</button>
+            <button class="rate-btn" id="rt-flat" onclick="setRateType('flat',this)">Flat rate</button>
+            <button class="rate-btn" id="rt-balloon" onclick="setRateType('balloon',this)">Interest only (balloon)</button>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="showPage('apply')">Apply for this loan →</button>
+      </div>
+
+      <div class="calc-result-card">
+        <h3>Your repayment estimate</h3>
+        <div class="calc-result-row"><span class="calc-result-label">Loan amount</span><span class="calc-result-val" id="cr-principal">R10,000</span></div>
+        <div class="calc-result-row"><span class="calc-result-label">Interest rate</span><span class="calc-result-val" id="cr-rate">3% per month</span></div>
+        <div class="calc-result-row"><span class="calc-result-label">Term</span><span class="calc-result-val" id="cr-term">12 months</span></div>
+        <div class="calc-result-row"><span class="calc-result-label">Total interest</span><span class="calc-result-val" id="cr-interest">R1,800</span></div>
+        <div class="calc-result-row"><span class="calc-result-label">Total repayable</span><span class="calc-result-val" id="cr-total">R11,800</span></div>
+        <div class="calc-highlight">
+          <div class="calc-highlight-label">Monthly repayment</div>
+          <div class="calc-highlight-num" id="cr-monthly">R983</div>
+        </div>
+        <p style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:16px;line-height:1.5;text-align:center">This is an estimate only. Actual rates are confirmed upon application. No obligation.</p>
+      </div>
+    </div>
+
+    <!-- FAQ on calculator page -->
+    <div style="max-width:760px;margin:60px auto 0">
+      <h2 class="section-title" style="text-align:center;margin-bottom:32px">Common questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the minimum and maximum loan amount? <span class="faq-icon">+</span></button>
+          <div class="faq-a">We offer loans from as little as R500 up to R50,000, depending on the loan type and your individual circumstances. If you're unsure, contact us and we'll help you find the right amount.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I repay early without penalties? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes — we encourage it! Early settlement saves you interest and there are no penalties for paying ahead of schedule. We believe in rewarding responsible financial behaviour.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What if I have a bad credit history? <span class="faq-icon">+</span></button>
+          <div class="faq-a">We review each application individually. We consider your current income and circumstances, not just your past. Many of our clients have been declined elsewhere and come to us for a fresh start.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How quickly will I receive the money? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Once approved and your agreement is signed, we aim to transfer funds on the same business day or the following day. Emergency loans are given the highest priority.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-calculator -->
+
+
+<!-- ══════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <section style="background:var(--green);padding:60px max(24px,calc(50% - 620px));text-align:center">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Get in touch</div>
+    <h1 style="color:var(--white);font-size:clamp(30px,4vw,48px);margin-bottom:14px">We'd love to hear from you</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:15px;max-width:500px;margin:0 auto;font-weight:300;line-height:1.8">Questions, queries, or just not sure where to start? Our friendly team is here to help — no pressure, no hard sell.</p>
+  </section>
+
+  <section class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title" style="margin-bottom:24px">Talk to real people</h2>
+        <p style="font-size:15px;color:var(--ink-mid);line-height:1.7;margin-bottom:28px;font-weight:300">We respond to every enquiry personally. There are no bots on this end — just a team of people who care about helping you.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-label">Phone / WhatsApp</div><div class="contact-val">+27 00 000 0000</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><div class="contact-label">Email</div><div class="contact-val">hello@incrediblelending.co.za</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Based in</div><div class="contact-val">Johannesburg, Gauteng, South Africa</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div><div class="contact-label">Office hours</div><div class="contact-val">Mon – Fri: 8am – 5pm · Sat: 9am – 1pm</div></div>
+        </div>
+        <div style="background:var(--green);border-radius:14px;padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <div style="font-size:28px">💬</div>
+          <div>
+            <div style="color:var(--white);font-weight:600;font-size:14px;margin-bottom:4px">Prefer WhatsApp?</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:12px">Drop us a message and we'll respond within the hour during business hours.</div>
+            <a href="https://wa.me/27000000000?text=Hi!%20I'd%20like%20to%20enquire%20about%20a%20loan." target="_blank" style="display:inline-block;background:#25D366;color:var(--white);padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">Open WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--green);margin-bottom:20px">Send us a message</h3>
+        <div class="form-row">
+          <div class="form-field"><label>First name</label><input id="c-first" type="text" placeholder="John"></div>
+          <div class="form-field"><label>Last name</label><input id="c-last" type="text" placeholder="Doe"></div>
+        </div>
+        <div class="form-field"><label>Phone number</label><input id="c-phone" type="tel" placeholder="+27 82 123 4567"></div>
+        <div class="form-field"><label>Email address</label><input id="c-email" type="email" placeholder="john@email.com"></div>
+        <div class="form-field">
+          <label>What can we help you with?</label>
+          <select id="c-subject">
+            <option value="">Select a topic…</option>
+            <option>I want to apply for a loan</option>
+            <option>Question about my existing loan</option>
+            <option>Repayment query</option>
+            <option>I need help understanding my options</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Your message</label><textarea id="c-msg" placeholder="Tell us what's on your mind…"></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send message →</button>
+        <div class="form-success" id="contact-success">✅ Thank you! We'll be in touch within one business day.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="section-header-centered">
+      <div class="eyebrow">FAQs</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How do I apply for a loan? <span class="faq-icon">+</span></button>
+        <div class="faq-a">You can apply online using our simple form — it takes about 5 minutes. Click "Apply Now" in the menu. You can also WhatsApp or call us and we'll guide you through the process personally.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What documents do I need? <span class="faq-icon">+</span></button>
+        <div class="faq-a">You'll need a valid South African ID, proof of income (latest payslip or 3 months' bank statements), and your banking details. That's it — we keep it simple.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long does approval take? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Most applications are assessed within 24 hours of submission. Emergency loans are prioritised and we aim to give you a decision on the same day. You'll be kept informed throughout.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are there any upfront fees to apply? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Never. Applying is completely free and there is no obligation to accept any offer. All fees are only deducted if you proceed with a loan, and they are disclosed to you in full before you sign anything.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens if I miss a payment? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Please contact us before you miss a payment — we can almost always find a solution. We understand that life happens. Our goal is to work with you, not against you. Communication is everything.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I apply if I'm self-employed? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Absolutely. We welcome applications from self-employed individuals and business owners. You'll need to provide bank statements or other proof of your income for the past 3 months.</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+
+<!-- ══════════════════════════════════
+     PAGE: APPLY
+══════════════════════════════════ -->
+<div class="page" id="page-apply">
+
+  <div class="apply-hero">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.6)">Takes about 5 minutes</div>
+    <h1>Apply for your loan</h1>
+    <p>Fill in your details below and our team will review your application within 24 hours. No obligation to accept.</p>
+    <div class="apply-steps-strip">
+      <div class="apply-step-pill"><span class="num">1</span>Your details</div>
+      <div class="apply-step-pill"><span class="num">2</span>Employment</div>
+      <div class="apply-step-pill"><span class="num">3</span>Loan request</div>
+      <div class="apply-step-pill"><span class="num">4</span>Review</div>
+    </div>
+  </div>
+
+  <div class="apply-frame">
+    <div class="apply-card">
+      <div id="apply-form-wrap">
+        <div class="apply-err" id="apply-err"></div>
+
+        <div class="apply-section-title" data-step="1">Personal information</div>
+        <div class="apply-section-body">
+          <div class="apply-grid">
+            <div class="apply-field"><label>First name <span>*</span></label><input id="a-first" type="text" placeholder="John" autocomplete="given-name"></div>
+            <div class="apply-field"><label>Last name <span>*</span></label><input id="a-last" type="text" placeholder="Doe" autocomplete="family-name"></div>
+            <div class="apply-field"><label>Phone number <span>*</span></label><input id="a-phone" type="tel" placeholder="+27 82 123 4567" autocomplete="tel"></div>
+            <div class="apply-field"><label>Email address <span>*</span></label><input id="a-email" type="email" placeholder="john@email.com" autocomplete="email"></div>
+            <div class="apply-field full"><label>ID number / Passport</label><input id="a-idnum" type="text" placeholder="National ID or passport number"></div>
+            <div class="apply-field full"><label>Residential address</label><input id="a-address" type="text" placeholder="Street, City, Province" autocomplete="street-address"></div>
+          </div>
+        </div>
+
+        <div class="apply-section-title" data-step="2">Employment &amp; income</div>
+        <div class="apply-section-body">
+          <div class="apply-grid">
+            <div class="apply-field"><label>Employment status</label>
+              <select id="a-employment">
+                <option value="">Select…</option>
+                <option>Employed (full-time)</option>
+                <option>Employed (part-time)</option>
+                <option>Self-employed</option>
+                <option>Business owner</option>
+                <option>Unemployed</option>
+                <option>Retired</option>
+              </select>
+            </div>
+            <div class="apply-field"><label>Gross monthly income (R)</label><input id="a-income" type="number" placeholder="e.g. 15000" min="0"></div>
+            <div class="apply-field full"><label>Employer / business name</label><input id="a-employer" type="text" placeholder="Company or business name"></div>
+          </div>
+        </div>
+
+        <div class="apply-section-title" data-step="3">Loan request</div>
+        <div class="apply-section-body">
+          <div class="apply-grid">
+            <div class="apply-field"><label>Loan amount (R) <span>*</span></label><input id="a-amount" type="number" placeholder="5000" min="500"></div>
+            <div class="apply-field"><label>Preferred term (months) <span>*</span></label><input id="a-term" type="number" placeholder="12" min="1" max="120"></div>
+            <div class="apply-field full"><label>Loan type <span>*</span></label>
+              <select id="a-type">
+                <option value="">Select loan type…</option>
+                <option>Personal loan</option>
+                <option>Business loan</option>
+                <option>Education loan</option>
+                <option>Home improvement</option>
+                <option>Emergency loan</option>
+                <option>Debt consolidation</option>
+              </select>
+            </div>
+            <div class="apply-field full"><label>Purpose of loan <span>*</span></label><input id="a-purpose" type="text" placeholder="e.g. Home repairs, medical bills, business stock…"></div>
+            <div class="apply-field full"><label>Additional notes (optional)</label><textarea id="a-notes" placeholder="Anything else you'd like us to know about your situation…"></textarea></div>
+          </div>
+        </div>
+
+        <div style="background:var(--gold-light);border:1px solid rgba(200,146,42,0.3);border-radius:10px;padding:14px 20px;margin:0 28px 20px;font-size:13px;color:var(--ink-mid);line-height:1.6">
+          🔒 <strong>Your privacy is protected.</strong> Your personal information is kept strictly confidential and will only be used to assess your loan application.
+        </div>
+
+        <div class="apply-footer">
+          <button class="apply-submit" id="apply-submit-btn" onclick="submitApply()">Submit application →</button>
+          <p style="font-size:11px;color:var(--ink-soft);text-align:center;margin-top:10px">By submitting this form you agree to be contacted by Incredible Lending regarding your application.</p>
+        </div>
+      </div>
+
+      <div class="apply-success" id="apply-success-wrap" style="display:none">
+        <div class="apply-success-icon">✓</div>
+        <h2>Application submitted!</h2>
+        <p>Thank you, <strong id="apply-success-name"></strong>. We've received your application and our team will be in touch within 24 hours. You'll also receive a confirmation email shortly.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn-primary" onclick="showPage('home')">Back to home</button>
+          <a href="https://wa.me/27000000000?text=Hi!%20I%20just%20submitted%20a%20loan%20application%20and%20wanted%20to%20confirm." target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:#25D366;color:var(--white);border-radius:12px;font-size:15px;font-weight:600;text-decoration:none">💬 Confirm via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:640px;margin:28px auto 0;text-align:center">
+      <p style="font-size:13px;color:var(--ink-soft)">Prefer to apply a different way? <button onclick="showPage('contact')" style="background:none;border:none;color:var(--green);font-weight:600;cursor:pointer;font-size:13px;text-decoration:underline">Contact us directly →</button></p>
+    </div>
+  </div>
+
+</div><!-- /page-apply -->
+
+
+<!-- ══════════════════════════════════
+     FOOTER (shared across all pages)
+══════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Incredible Lending</div>
+      <p class="footer-tagline">Built on Trust. Driven by Community.<br>Real people helping real people — since 2020.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://wa.me/27000000000" target="_blank" style="background:rgba(255,255,255,0.08);padding:8px 14px;border-radius:8px;font-size:12px;color:rgba(255,255,255,0.7);text-decoration:none">💬 WhatsApp</a>
+        <span style="background:rgba(255,255,255,0.08);padding:8px 14px;border-radius:8px;font-size:12px;color:rgba(255,255,255,0.7)">📞 +27 00 000 0000</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Our services</div>
+      <div class="footer-links">
+        <button class="footer-link" onclick="showPage('services')">Personal loans</button>
+        <button class="footer-link" onclick="showPage('services')">Business loans</button>
+        <button class="footer-link" onclick="showPage('services')">Education loans</button>
+        <button class="footer-link" onclick="showPage('services')">Emergency loans</button>
+        <button class="footer-link" onclick="showPage('services')">Debt consolidation</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <button class="footer-link" onclick="showPage('about')">About us</button>
+        <button class="footer-link" onclick="showPage('contact')">Contact us</button>
+        <button class="footer-link" onclick="showPage('calculator')">Loan calculator</button>
+        <button class="footer-link" onclick="showPage('apply')">Apply now</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Need help?</div>
+      <div class="footer-links">
+        <button class="footer-link" onclick="showPage('contact')">FAQs</button>
+        <button class="footer-link" onclick="showPage('contact')">Send a message</button>
+        <button class="footer-link" onclick="showPage('contact')">Repayment query</button>
+      </div>
+      <div style="margin-top:16px">
+        <div class="footer-badge">🔒 Secure &amp; Confidential</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Incredible Lending. All rights reserved.</span>
+    <span style="color:rgba(255,255,255,0.35)">Responsible lending. Transparent terms. Real people.</span>
+  </div>
+</footer>
+
+<script>
+// ── PAGE ROUTING ─────────────────────────────────────────
+const pages = ['home','about','services','calculator','contact','apply'];
+
+function showPage(id){
+  pages.forEach(p=>{
+    const el = document.getElementById('page-'+p);
+    const nb = document.getElementById('nl-'+p);
+    if(el) el.classList.toggle('active', p===id);
+    if(nb) nb.classList.toggle('active', p===id);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='calculator') calcUpdate();
+}
+
+function toggleMobileMenu(){
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+
+// ── HERO CALCULATOR ────────────────────────────────────────
+function fmt(n){return 'R'+Math.round(n).toLocaleString('en-ZA');}
+function fmtD(n){return 'R'+(+n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+function updateHeroCalc(){
+  const p = +document.getElementById('hero-slider').value;
+  const r = 0.03, t = 12;
+  document.getElementById('hero-amount-display').textContent = fmt(p);
+  const monthly = p*(r*Math.pow(1+r,t))/(Math.pow(1+r,t)-1);
+  const total = monthly*t;
+  const interest = total-p;
+  document.getElementById('h-monthly').textContent = fmtD(monthly);
+  document.getElementById('h-interest').textContent = fmtD(interest);
+  document.getElementById('h-total').textContent = fmtD(total);
+}
+updateHeroCalc();
+
+// ── MAIN CALCULATOR ────────────────────────────────────────
+let rateType = 'equal';
+
+function setRateType(type, btn){
+  rateType = type;
+  document.querySelectorAll('.rate-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  calcUpdate();
+}
+
+function calcUpdate(){
+  const p = +document.getElementById('calc-amount').value || 10000;
+  const t = +document.getElementById('calc-term').value || 12;
+  const r = +document.getElementById('calc-rate').value || 3;
+
+  document.getElementById('calc-amount-lbl').textContent = fmt(p);
+  document.getElementById('calc-term-lbl').textContent = t + (t===1?' month':' months');
+  document.getElementById('calc-rate-lbl').textContent = r + '%';
+
+  const rt = r/100;
+  let monthly, total, totalInterest;
+
+  if(rateType==='equal'){
+    monthly = rt===0 ? p/t : p*(rt*Math.pow(1+rt,t))/(Math.pow(1+rt,t)-1);
+    total = monthly*t;
+    totalInterest = total-p;
+  } else if(rateType==='balloon'){
+    monthly = p*rt;
+    total = monthly*(t-1)+(p+monthly);
+    totalInterest = monthly*t;
+  } else { // flat
+    totalInterest = p*rt*t;
+    total = p+totalInterest;
+    monthly = total/t;
+  }
+
+  document.getElementById('cr-principal').textContent = fmt(p);
+  document.getElementById('cr-rate').textContent = r+'% per month';
+  document.getElementById('cr-term').textContent = t+(t===1?' month':' months');
+  document.getElementById('cr-interest').textContent = fmtD(totalInterest);
+  document.getElementById('cr-total').textContent = fmtD(total);
+  document.getElementById('cr-monthly').textContent = fmtD(monthly);
+}
+
+// ── FAQ TOGGLE ────────────────────────────────────────────
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ── CONTACT FORM ──────────────────────────────────────────
+function submitContact(){
+  const first = document.getElementById('c-first').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const msg = document.getElementById('c-msg').value.trim();
+  if(!first||!email||!msg){alert('Please fill in your name, email and message.');return;}
+  const btn = document.querySelector('.form-submit');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  setTimeout(()=>{
+    document.getElementById('contact-success').style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Send message →';
+    ['c-first','c-last','c-phone','c-email','c-subject','c-msg'].forEach(id=>{
+      const el = document.getElementById(id); if(el) el.value='';
+    });
+  }, 1200);
+}
+
+// ── APPLY FORM ────────────────────────────────────────────
+const FORMSPREE_ID = 'xwvwdnzr';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDZKETEKR1wr1f_4l7ws6QL_88C_TnnmD3VWnSHbzdE0Sz7p9-PHjccI2qLcxLBQU5fg/exec';
+
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function gv(id){const el=document.getElementById(id);return el?el.value.trim():'';}
+function gn(id){return +document.getElementById(id).value||0;}
+
+async function submitApply(){
+  const first=gv('a-first'),last=gv('a-last'),phone=gv('a-phone'),email=gv('a-email'),
+        amount=gn('a-amount'),term=gn('a-term'),purpose=gv('a-purpose');
+  const errEl = document.getElementById('apply-err');
+  errEl.style.display='none';
+
+  if(!first||!last||!phone||!email||!amount||!term||!purpose){
+    errEl.textContent='Please fill in all required fields (marked with *).';
+    errEl.style.display='block';
+    window.scrollTo({top:document.getElementById('page-apply').offsetTop,behavior:'smooth'});
+    return;
+  }
+  if(!email.includes('@')||!email.includes('.')){
+    errEl.textContent='Please enter a valid email address.';errEl.style.display='block';return;
+  }
+
+  const btn = document.getElementById('apply-submit-btn');
+  btn.disabled=true;btn.textContent='Submitting your application…';
+
+  const appData = {
+    id:uid(), first, last, phone, email,
+    idnum:gv('a-idnum'), address:gv('a-address'),
+    employment:gv('a-employment'), income:gn('a-income'),
+    employer:gv('a-employer'), amount, term,
+    loanType:gv('a-type'), purpose, notes:gv('a-notes'),
+    status:'pending',
+    submittedAt:new Date().toLocaleString('en-ZA',{dateStyle:'full',timeStyle:'short'})
+  };
+
+  const emailPayload = {
+    '_subject':'New loan application — '+first+' '+last,
+    'Full Name':first+' '+last,'Phone':phone,'Email':email,
+    'Loan Amount':'R'+amount.toLocaleString(),'Term':term+' months',
+    'Loan Type':gv('a-type'),'Purpose':purpose,
+    'Employment':gv('a-employment'),'Monthly Income':gn('a-income')?'R'+gn('a-income').toLocaleString():'Not provided',
+    'Submitted At':appData.submittedAt
+  };
+
+  try{
+    await Promise.allSettled([
+      fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(appData)}),
+      fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(emailPayload)})
+    ]);
+    document.getElementById('apply-success-name').textContent=first;
+    document.getElementById('apply-form-wrap').style.display='none';
+    document.getElementById('apply-success-wrap').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    errEl.textContent='Submission failed. Please check your connection and try again.';
+    errEl.style.display='block';
+    btn.disabled=false;btn.textContent='Submit application →';
+  }
+}
+
+// ── SCROLL REVEAL ────────────────────────────────────────
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
